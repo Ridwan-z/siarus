@@ -19,7 +19,7 @@ class Login extends Controller {
 
 				//$this->model('LoginModel')->isLoggedIn($_SESSION['session_login']);
 				
-				header('location: '. base_url . '/buku');
+				header('location: '. base_url . '/home');
 		} else {
 			Flasher::setMessage('Username / Password','salah.','danger');
 			header('location: '. base_url . '/login');

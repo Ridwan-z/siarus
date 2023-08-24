@@ -8,9 +8,8 @@
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body">
-                  <img src="<?= base_url;?>/assets/images/logos/dark-logo.svg" width="180" alt="">
-                </a>
-                <br></br>
+                  
+                
                 <form action="<?= base_url; ?>/login/prosesLogin" method="post">
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Username</label>
