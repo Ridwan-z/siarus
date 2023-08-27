@@ -91,6 +91,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              required
             />
           </div>
           <div class="mb-3">
@@ -103,6 +104,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              required
             />
           </div>
           <div class="row">
@@ -119,6 +121,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              required
             />
           </div>
         </div>
@@ -164,6 +167,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              required
             />
           </div>
           </div>
@@ -177,6 +181,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              required
             />
           </div>
         </div>
@@ -201,6 +206,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              required
             />
           </div>
           
@@ -209,7 +215,7 @@
           </p>
           <div class="mb-5 align-right">
             <!-- Added align-right class here -->
-            <button type="submit" class="btn btn-success mb-3">Register</button>
+            <button type="submit" class="btn btn-success mb-3">Daftar</button>
           </div>
         </form>
       </div>
