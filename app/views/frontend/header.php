@@ -146,7 +146,7 @@
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"
+                  <a class="dropdown-item" href="<?=base_url;?>/login"
                     >Pendaftaran Online</a
                   >
                 </li>
@@ -184,9 +184,7 @@
             <li class="nav-item">
               <a class="nav-link text-dark" href="<?=base_url;?>/home/hubungi">Hubungi Kami</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white btn btn-success" href="<?=base_url;?>/login">Login</a>
-            </li>
+            
           </ul>
         </div>
       </div>
