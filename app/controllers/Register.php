@@ -4,10 +4,8 @@ class Register extends Controller {
 	public function index()
 	{
 		$data['title'] = 'Halaman Register';
-		$this->view('templates/header', $data);
-		// $this->view('templates/sidebar', $data);
 		$this->view('register/register', $data);
-		$this->view('templates/footer');
+		
 	}
 	public function aksi(){
 		ini_set('display_errors', 1);

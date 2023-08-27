@@ -43,6 +43,9 @@
         display: flex;
         justify-content: flex-end;
       }
+      .form-control:focus {
+        box-shadow: 0 0 0 0.2rem rgba(89, 219, 119, 0.5);
+      }
 
       .row-checkbox {
         --bs-gutter-x: 1.5rem;
