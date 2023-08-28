@@ -47,7 +47,7 @@
               <h5 class="card-title fw-semibold mb-4"><?=$data['title']?></h5>
               
               <form action="<?=base_url;?>/jadwal/aksiUpdate" method="POST">
-              <input type="hidden" name="id_jadwal">
+              <input type="hidden" name="id_jadwal" value="<?=$data['jadwal']['id_jadwal']?>">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Hari</label>
                       <input type="text" class="form-control" name="hari" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?=$data['jadwal']['hari']?>">
@@ -60,7 +60,14 @@
                       <label for="exampleInputEmail1" class="form-label">Jam Selesai</label>
                       <input type="text" class="form-control" name="jam_selesai" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?=$data['jadwal']['jam_selesai']?>">
                     </div>
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <div class="row">
+                      <div class="col-6">
+                        <a href="<?=base_url;?>/jadwal" class="btn btn-danger">Kembali <i class="ti ti-arrow-back"></i></a>
+                      </div>
+                      <div class="col-6 text-end">
+                        <button type="submit" class="btn btn-primary">Edit <i class="ti ti-user-plus"></i></button>
+                      </div>
+                    </div>
                   </form>
             </div>
           </div>

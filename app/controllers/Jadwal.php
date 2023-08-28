@@ -15,14 +15,14 @@ class Jadwal extends Controller{
         $this->view('templates/header',$data);
         $this->view('templates/sidebar');
         $this->view('jadwal/index',$data);
-        $this->view('jadwal/footer',$data);
+        $this->view('templates/footer',$data);
     }
     public function tambah(){
         $data['title'] = 'Tambah data Jadwal';
         $this->view('templates/header',$data);
         $this->view('templates/sidebar');
         $this->view('jadwal/tambah',$data);
-        $this->view('jadwal/footer',$data);
+        $this->view('templates/footer',$data);
     }
     public function edit($id){
         $data['title'] = 'Detail Jadwal';

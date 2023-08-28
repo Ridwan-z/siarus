@@ -59,7 +59,14 @@
                       <label for="exampleInputEmail1" class="form-label">Jam Selesai</label>
                       <input type="text" class="form-control" name="jam_selesai" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <div class="row">
+                      <div class="col-6">
+                        <a href="<?=base_url;?>/jadwal" class="btn btn-danger">Kembali <i class="ti ti-arrow-back"></i></a>
+                      </div>
+                      <div class="col-6 text-end">
+                        <button type="submit" class="btn btn-primary">Tambah <i class="ti ti-user-plus"></i></button>
+                      </div>
+                    </div>
                   </form>
             </div>
           </div>

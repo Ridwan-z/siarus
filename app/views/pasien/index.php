@@ -45,8 +45,8 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title fw-semibold mb-4"><?=$data['title']?></h5>
-              <a href="<?=base_url;?>/pasien/tambah" class="btn btn-info">Add <i class="ti ti-user-plus"></i></a>
-              <br></br>
+  
+  
               <table class="table table-striped">
   <thead>
     <tr>

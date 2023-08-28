@@ -1,3 +1,13 @@
+<?php
+
+$this->db = new Database;
+$uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+$uriS = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+$uri = $uriS[2];
+$uriPop = array_pop($uriSegments);
+
+
+?>
 <aside class="left-sidebar">
       <!-- Sidebar scroll-->
       <div>
@@ -16,8 +26,8 @@
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Home</span>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="#ds" aria-expanded="false">
+            <li <?php if($uriPop === 'dashboard') : ?>class="sidebar-item selected" <?php else: ?>class="sidebar-item"<?php endif; ?>>
+              <a class="sidebar-link" href="<?= base_url;?>/dashboard" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -28,7 +38,7 @@
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">DATA</span>
             </li>
-            <li class="sidebar-item">
+            <li <?php if($uriPop === 'dokter') : ?>class="sidebar-item selected" <?php else: ?>class="sidebar-item"<?php endif; ?>>
               <a class="sidebar-link" href="<?=base_url;?>/dokter" aria-expanded="false">
                 <span>
                   <i class="ti ti-user"></i>
@@ -36,7 +46,7 @@
                 <span class="hide-menu">Dokter</span>
               </a>
             </li>
-            <li class="sidebar-item">
+            <li <?php if($uriPop === 'pasien') : ?>class="sidebar-item selected" <?php else: ?>class="sidebar-item"<?php endif; ?>>
               <a class="sidebar-link" href="<?=base_url;?>/pasien" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
@@ -44,7 +54,7 @@
                 <span class="hide-menu">Pasien</span>
               </a>
             </li>
-            <li class="sidebar-item">
+            <li <?php if($uriPop === 'jadwal') : ?>class="sidebar-item selected" <?php else: ?>class="sidebar-item"<?php endif; ?>>
               <a class="sidebar-link" href="<?=base_url;?>/jadwal" aria-expanded="false">
                 <span>
                   <i class="ti ti-report"></i>

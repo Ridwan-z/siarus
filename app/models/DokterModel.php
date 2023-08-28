@@ -10,7 +10,7 @@ class DokterModel{
 
 	public function getAllDokter()
 	{
-		$this->db->query('SELECT * FROM ' . $this->table);
+		$this->db->query("SELECT dokter.*, jadwal.jam_mulai,jadwal.jam_selesai FROM " . $this->table . " JOIN jadwal ON jadwal.id_jadwal = dokter.id_jadwal");
 		return $this->db->resultSet();
 	}
 

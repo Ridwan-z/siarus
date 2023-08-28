@@ -53,7 +53,7 @@
               <br></br>
               <table class="table table-striped">
   <thead>
-    <tr>
+    <tr>  
         <th scope="col">No</th>
       <th scope="col">Nama</th>
       <th scope="col">Spesialisasi</th>
@@ -68,7 +68,7 @@
         <td><?=$no?></td>
       <td><?=$row['nama']?></td>
       <td><?=$row['spesialisasi']?></td>
-      <td><?=$row['id_jadwal']?></td>
+      <td><?=$row['jam_mulai']?> - <?=$row['jam_selesai']?></td>
       <td>
         <a href="<?=base_url;?>/dokter/edit/<?= $row['id_dokter'] ?>" class="btn btn-warning">Edit <i class="ti ti-edit"></i></a> | 
         <a href="<?=base_url;?>/dokter/hapus/<?= $row['id_dokter'] ?>" class="btn btn-danger" onclick="return confirm('Hapus data?');">Delete <i class="ti ti-trash"></i></a>

@@ -46,8 +46,8 @@
             <div class="card-body">
               <h5 class="card-title fw-semibold mb-4"><?=$data['title']?></h5>
               
-              <form action="<?=base_url;?>/dokter/aksiUpdate" method="POST">
-              <input type="hidden" name="id_dokter">
+              <form action="<?=base_url;?>/dokter/aksiUpdate" method="POST" enctype="multipart/form-data">
+              <input type="hidden" name="id_dokter" value="<?=$data['dokter']['id_dokter']?>">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
                       <input type="text" class="form-control" name="nama" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?=$data['dokter']['nama']?>">
@@ -58,9 +58,21 @@
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Id Jadwal</label>
-                      <input type="text" class="form-control" name="id_jadwal" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?=$data['dokter']['id_jadwal']?>">
+                      <select class="form-select" aria-label="Default select example" name="id_jadwal">
+                      <?php foreach ($data['jadwal'] as $row):?>
+                            
+                              <option value="<?=$row['id_jadwal']?>"><?=$row['jam_mulai']?> - <?=$row['jam_selesai']?></option>
+                          <?php endforeach;?>
+                      </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <div class="row">
+                      <div class="col-6">
+                        <a href="<?=base_url;?>/dokter" class="btn btn-danger">Kembali <i class="ti ti-arrow-back"></i></a>
+                      </div>
+                      <div class="col-6 text-end">
+                        <button type="submit" class="btn btn-primary">Edit <i class="ti ti-user-plus"></i></button>
+                      </div>
+                    </div>
                   </form>
             </div>
           </div>

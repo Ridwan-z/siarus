@@ -15,17 +15,19 @@ class Dokter extends Controller{
         $this->view('templates/header',$data);
         $this->view('templates/sidebar');
         $this->view('dokter/index',$data);
-        $this->view('dokter/footer',$data);
+        $this->view('templates/footer',$data);
     }
     public function tambah(){
         $data['title'] = 'Tambah data Dokter';
+		$data['jadwal'] = $this->model('JadwalModel')->getAllJadwal();
         $this->view('templates/header',$data);
         $this->view('templates/sidebar');
         $this->view('dokter/tambah',$data);
-        $this->view('dokter/footer',$data);
+        $this->view('templates/footer',$data);
     }
     public function edit($id){
         $data['title'] = 'Detail Dokter';
+		$data['jadwal'] = $this->model('JadwalModel')->getAllJadwal();
 		$data['dokter'] = $this->model('DokterModel')->getDokterById($id);
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', );

@@ -56,10 +56,24 @@
                       <input type="text" class="form-control" name="spesialisasi" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Id Jadwal</label>
-                      <input type="text" class="form-control" name="id_jadwal" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <label for="exampleInputEmail1" class="form-label">Jadwal</label>
+                      <select class="form-select" aria-label="Default select example" name="id_jadwal">
+                        <option value="">Pilih Jadwal...</option>    
+                      <?php foreach ($data['jadwal'] as $row):?>
+                            
+                              <option value="<?=$row['id_jadwal']?>"><?=$row['jam_mulai']?> - <?=$row['jam_selesai']?></option>
+                          <?php endforeach;?>
+                      </select>
+
                     </div>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <div class="row">
+                      <div class="col-6">
+                    <a href="<?=base_url;?>/dokter" class="btn btn-danger">Kembali <i class="ti ti-arrow-back"></i></a>
+                    </div>
+                    <div class="col-6 text-end">
+                    <button type="submit" class="btn btn-primary">Tambah <i class="ti ti-user-plus"></i></button>
+                    </div>
+                    </div>
                   </form>
             </div>
           </div>
