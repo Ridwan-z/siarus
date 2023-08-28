@@ -3,7 +3,7 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="#" class="text-nowrap logo-img">
-          <h5 class="card-title fw-semibold">SiARUS</h5>
+          <h5 class="card-title fw-semibold">SIAP</h5>
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -29,25 +29,25 @@
               <span class="hide-menu">DATA</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="#dk" aria-expanded="false">
+              <a class="sidebar-link" href="<?=base_url;?>/dokter" aria-expanded="false">
                 <span>
-                  <i class="ti ti-article"></i>
+                  <i class="ti ti-user"></i>
                 </span>
                 <span class="hide-menu">Dokter</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="#ps" aria-expanded="false">
+              <a class="sidebar-link" href="<?=base_url;?>/pasien" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-users"></i>
                 </span>
                 <span class="hide-menu">Pasien</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="#jd" aria-expanded="false">
+              <a class="sidebar-link" href="<?=base_url;?>/jadwal" aria-expanded="false">
                 <span>
-                  <i class="ti ti-cards"></i>
+                  <i class="ti ti-report"></i>
                 </span>
                 <span class="hide-menu">Jadwal</span>
               </a>
@@ -55,7 +55,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="#an" aria-expanded="false">
                 <span>
-                  <i class="ti ti-file-description"></i>
+                  <i class="ti ti-timeline"></i>
                 </span>
                 <span class="hide-menu">Antrian</span>
               </a>
