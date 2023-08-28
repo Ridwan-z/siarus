@@ -12,7 +12,7 @@ class RegisterModel {
 
 	public function registerPasien($data)
 	{
-		$query = "INSERT INTO pasien (nik, nama, tgl_lahir, jenis_kelamin, no_hp, alamat, no_bpjs, kelurahan) VALUES(:nik, :nama, :tgl_lahir, :jenis_kelamin, :no_hp, :alamat, :no_bpjs, :kelurahan)";
+		$query = "INSERT INTO pasien (nik, nama, tgl_lahir, jenis_kelamin, no_hp, alamat, no_bpjs, provinsi, kabupaten, kecamatan, kelurahan) VALUES(:nik, :nama, :tgl_lahir, :jenis_kelamin, :no_hp, :alamat, :no_bpjs, :provinsi, :kabupaten, :kecamatan, :kelurahan)";
 		$this->db->query($query);
 		$this->db->bind('nik', $data['nik']);
 		$this->db->bind('nama', $data['nama']);
@@ -21,6 +21,9 @@ class RegisterModel {
 		$this->db->bind('no_hp', $data['no_hp']);
 		$this->db->bind('alamat', $data['alamat']);
         $this->db->bind('no_bpjs', $data['no_bpjs']);
+    	$this->db->bind('provinsi', 'Jawa Timur');
+    	$this->db->bind('kabupaten', 'Jember');
+    	$this->db->bind('kecamatan', 'Semboro');
 		$this->db->bind('kelurahan', $data['kelurahan']);
 		$this->db->execute();
 
