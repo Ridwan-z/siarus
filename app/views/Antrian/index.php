@@ -42,41 +42,37 @@
       <!--  Header End -->
       <div class="container-fluid">
       <div class="container-fluid">
+      <?php
+                    Flasher::Pesan();
+                  ?> 
           <div class="card">
             <div class="card-body">
               <h5 class="card-title fw-semibold mb-4"><?=$data['title']?></h5>
-  
-  
+              <a href="<?=base_url;?>/antrian/tambah" class="btn btn-info">Add <i class="ti ti-user-plus"></i></a>
+              <br></br>
               <table class="table table-striped">
   <thead>
     <tr>
         <th scope="col">No</th>
-      <th scope="col">NIK</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Tanggal Lahir</th>
-      <th scope="col">Jenis Kelamin</th>
-      <th scope="col">Alamat</th>
-      <th scope="col">NO BPJS</th>
-      <th scope="col">NO HP</th>
+      <th scope="col">Pasien</th>
+      <th scope="col">Tanggal Antrian</th>
+      <th scope="col">Keluhan</th>
+      <th scope="col">Dokter</th>
       <th scope="col">Action</th>
-      
     </tr>
   </thead>
   <tbody>
     <?php $no=1; ?> 
-    <?php foreach ($data['pasien'] as $row) :?>
+    <?php foreach ($data['antrian'] as $row) :?>
     <tr>
         <td><?=$no?></td>
-      <td><?=$row['nik']?></td>
-      <td><?=$row['nama']?></td>
-      <td><?=$row['tgl_lahir']?></td>
-      <td><?=$row['jenis_kelamin']?></td>
-      <td><?=$row['alamat']?> - <?=$row['kelurahan']?> - <?=$row['kecamatan']?> - <?=$row['kabupaten']?> - <?=$row['provinsi']?></td>
-      <td><?=$row['no_bpjs']?></td>
-      <td><?=$row['no_hp']?></td>
+      <td><?=$row['nama_pasien']?></td>
+      <td><?=$row['tgl_antrian']?></td>
+      <td><?=$row['keluhan']?></td>
+      <td><?=$row['nama_dokter']?></td>
       <td>
-        <a href="<?=base_url;?>/pasien/edit/<?=$row['id_pasien']?>" class="btn btn-warning">Edit <i class="ti ti-edit"></i></a> | 
-        <a href="<?=base_url;?>/pasien/hapus/<?=$row['id_pasien']?>" class="btn btn-danger" onclick="return confirm('Hapus data?');">Delete <i class="ti ti-trash"></i></a>
+        <a href="<?=base_url;?>/antrian/edit/<?=$row['id_antrian']?>" class="btn btn-warning">Edit <i class="ti ti-edit"></i></a> | 
+        <a href="<?=base_url;?>/antrian/hapus/<?=$row['id_antrian']?>" class="btn btn-danger" onclick="return confirm('Hapus data?');">Delete <i class="ti ti-trash"></i></a>
       </td>
     </tr>
     <?php $no++; endforeach; ?> 

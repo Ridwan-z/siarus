@@ -45,44 +45,47 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title fw-semibold mb-4"><?=$data['title']?></h5>
-  
-  
-              <table class="table table-striped">
-  <thead>
-    <tr>
-        <th scope="col">No</th>
-      <th scope="col">NIK</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Tanggal Lahir</th>
-      <th scope="col">Jenis Kelamin</th>
-      <th scope="col">Alamat</th>
-      <th scope="col">NO BPJS</th>
-      <th scope="col">NO HP</th>
-      <th scope="col">Action</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <?php $no=1; ?> 
-    <?php foreach ($data['pasien'] as $row) :?>
-    <tr>
-        <td><?=$no?></td>
-      <td><?=$row['nik']?></td>
-      <td><?=$row['nama']?></td>
-      <td><?=$row['tgl_lahir']?></td>
-      <td><?=$row['jenis_kelamin']?></td>
-      <td><?=$row['alamat']?> - <?=$row['kelurahan']?> - <?=$row['kecamatan']?> - <?=$row['kabupaten']?> - <?=$row['provinsi']?></td>
-      <td><?=$row['no_bpjs']?></td>
-      <td><?=$row['no_hp']?></td>
-      <td>
-        <a href="<?=base_url;?>/pasien/edit/<?=$row['id_pasien']?>" class="btn btn-warning">Edit <i class="ti ti-edit"></i></a> | 
-        <a href="<?=base_url;?>/pasien/hapus/<?=$row['id_pasien']?>" class="btn btn-danger" onclick="return confirm('Hapus data?');">Delete <i class="ti ti-trash"></i></a>
-      </td>
-    </tr>
-    <?php $no++; endforeach; ?> 
-  </tbody>
-</table>
-             
+              
+              <form action="<?=base_url;?>/antrian/aksiTambah" method="POST">
+              <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Pasien</label>
+                      <select class="form-select" aria-label="Default select example" name="id_pasien">
+                        <option value="">Pilih pasien...</option>    
+                      <?php foreach ($data['pasien'] as $row):?>
+                            
+                              <option value="<?=$row['id_pasien']?>"><?=$row['nama']?></option>
+                          <?php endforeach;?>
+                      </select>
+
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Tanggal Antrian</label>
+                      <input type="date" class="form-control" name="tgl_antrian" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Keluhan</label>
+                      <input type="text" class="form-control" name="keluhan" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Dokter</label>
+                      <select class="form-select" aria-label="Default select example" name="id_dokter">
+                        <option value="">Pilih dokter...</option>    
+                      <?php foreach ($data['dokter'] as $row):?>
+                            
+                              <option value="<?=$row['id_dokter']?>"><?=$row['nama']?></option>
+                          <?php endforeach;?>
+                      </select>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <a href="<?=base_url;?>/antrian" class="btn btn-danger">Kembali <i class="ti ti-arrow-back"></i></a>
+                      </div>
+                      <div class="col-6 text-end">
+                        <button type="submit" class="btn btn-primary">Tambah <i class="ti ti-user-plus"></i></button>
+                      </div>
+                    </div>
+                  </form>
             </div>
           </div>
 </div>

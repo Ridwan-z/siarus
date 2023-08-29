@@ -62,8 +62,8 @@ $uriPop = array_pop($uriSegments);
                 <span class="hide-menu">Jadwal</span>
               </a>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="#an" aria-expanded="false">
+            <li <?php if($uriPop === 'antrian') : ?>class="sidebar-item selected" <?php else: ?>class="sidebar-item"<?php endif; ?>>
+              <a class="sidebar-link" href="<?=base_url;?>/antrian" aria-expanded="false">
                 <span>
                   <i class="ti ti-timeline"></i>
                 </span>
