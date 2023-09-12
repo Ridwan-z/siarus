@@ -23,4 +23,11 @@ class Home extends Controller {
 		$this->view('home/hubungi',$data);
 		$this->view('frontend/footer');
 	}
+
+	public function profile(){
+		$data['title'] = 'Halaman Profile';
+		$this->view('frontend/header',$data);
+		$this->view('home/profile',$data);
+		$this->view('frontend/footer');
+	}
 }

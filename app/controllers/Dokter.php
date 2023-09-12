@@ -35,14 +35,15 @@ class Dokter extends Controller{
 		$this->view('templates/footer',$data);
     }
     public function aksiTambah(){
+		ini_set('display_errors', 1);
         if( $this->model('DokterModel')->tambah($_POST) > 0 ) {
 			Flasher::setMessage('Berhasil','ditambahkan','success');
 			header('location: '. base_url . '/dokter');
 			exit;			
 		}else{
 			Flasher::setMessage('Gagal','ditambahkan','danger');
-			header('location: '. base_url . '/dokter');
-			exit;	
+			// header('location: '. base_url . '/dokter');
+			// exit;	
 		}
     }
 
@@ -54,8 +55,8 @@ class Dokter extends Controller{
 			exit;			
 		}else{
 			Flasher::setMessage('Gagal','diupdate','danger');
-			header('location: '. base_url . '/dokter');
-			exit;	
+			// header('location: '. base_url . '/dokter');
+			// exit;	
 		}
 	}
 

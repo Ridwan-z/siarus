@@ -1,82 +1,92 @@
-<div class="body-wrapper">
-      <!--  Header Start -->
-      <header class="app-header">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <ul class="navbar-nav">
-            <li class="nav-item d-block d-xl-none">
-              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
-                <i class="ti ti-menu-2"></i>
-              </a>
-            </li>
-            
-          </ul>
-          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
-            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-              <li class="nav-item dropdown">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <img src="<?= base_url;?>/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
-                  <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Profile</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
-                    </a>
-                    <a href="<?= base_url; ?>/logout/logout" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <!--  Header End -->
-      <div class="container-fluid">
-      <div class="container-fluid">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4"><?=$data['title']?></h5>
-              
-              <form action="<?=base_url;?>/dokter/aksiTambah" method="POST">
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
-                      <input type="text" class="form-control" name="nama" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+    <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0"><?=$data['title']?></h5>
+                      <!-- <small class="text-muted float-end">Merged input group</small> -->
                     </div>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Spesialisasi</label>
-                      <input type="text" class="form-control" name="spesialisasi" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Jadwal</label>
-                      <select class="form-select" aria-label="Default select example" name="id_jadwal">
+                    <div class="card-body">
+                      <form action="<?=base_url;?>/dokter/aksiTambah" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-fullname">Nama Lengkap</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"
+                              ><i class="bx bx-user"></i
+                            ></span>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="nama"
+                              id="basic-icon-default-fullname"
+                              placeholder="Dr. Suyadi"
+                              aria-label="John Doe"
+                              aria-describedby="basic-icon-default-fullname2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-company">Spesialisasi</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-company2" class="input-group-text"
+                              ><i class="bx bx-detail"></i
+                            ></span>
+                            <input
+                              type="text"
+                              id="basic-icon-default-company"
+                              name="spesialisasi"
+                              class="form-control"
+                              placeholder="Dokter Gigi"
+                              aria-label="ACME Inc."
+                              aria-describedby="basic-icon-default-company2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-email">Jadwal</label>
+                          <div class="input-group input-group-merge">
+                            <span class="input-group-text"><i class="bx bx-time-five"></i></span>
+                            <select class="form-select" aria-label="Default select example" name="id_jadwal">
                         <option value="">Pilih Jadwal...</option>    
                       <?php foreach ($data['jadwal'] as $row):?>
                             
                               <option value="<?=$row['id_jadwal']?>"><?=$row['jam_mulai']?> - <?=$row['jam_selesai']?></option>
                           <?php endforeach;?>
                       </select>
+                            <!-- <span id="basic-icon-default-email2" class="input-group-text">@example.com</span> -->
+                          </div>
+                          <!-- <div class="form-text">You can use letters, numbers & periods</div> -->
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-company">Foto (.Jpg .Jpeg .Png)</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-company2" class="input-group-text"
+                              ><i class="bx bx-photo-album"></i
+                            ></span>
+                            <input
+                              type="file"
+                              id="basic-icon-default-company"
+                              name="file"
+                              class="form-control"
 
-                    </div>
-                    <div class="row">
+                              aria-label="ACME Inc."
+                              aria-describedby="basic-icon-default-company2"
+                            />
+                          </div>
+                        </div>
+                        
+                        <div class="row">
                       <div class="col-6">
-                    <a href="<?=base_url;?>/dokter" class="btn btn-danger">Kembali <i class="ti ti-arrow-back"></i></a>
+                    <a href="<?=base_url;?>/dokter" class="btn btn-danger"><span class="tf-icons bx bx-arrow-back "></span> &nbsp; Kembali</a>
                     </div>
                     <div class="col-6 text-end">
-                    <button type="submit" class="btn btn-primary">Tambah <i class="ti ti-user-plus"></i></button>
+                    <button type="submit" class="btn btn-primary">Tambah &nbsp; <span class="tf-icons bx bx-user-plus"></span></button>
                     </div>
                     </div>
-                  </form>
-            </div>
-          </div>
-</div>
-      </div>
-    </div>
+                      </form>
+                    </div>
+                  </div>
+                  </div>
+                  </div>

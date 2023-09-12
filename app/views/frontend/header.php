@@ -42,6 +42,9 @@
         background-color: #4caf50;
         color: white;
         padding: 20px 0;
+        /* position: absolute; */
+        /* bottom : 0; */
+        /* width: 100%; */
       }
 
       .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
@@ -96,6 +99,23 @@
       .card-img-top:hover {
         transform: scale(1.1);
       }
+
+  #ScrolltoTop{
+    font-size: 30px;
+    width: 45px;
+    color: var(--white);
+    background-color: #FFD662;
+    border: none;
+    border-radius: 5px;
+    position: fixed;
+    right: 60px;
+    bottom: 35px;
+    cursor: pointer;
+}
+
+#ScrolltoTop:hover{
+    background-color: #dfb133;
+}
     </style>
 
     <title>Puskesmas blablabla</title>
@@ -165,8 +185,8 @@
               </a>
               <ul class="dropdown-menu my-2" aria-labelledby="tentangDropdown">
                 <li>
-                  <a class="dropdown-item" href="#"
-                    >Tim Kami</a
+                  <a class="dropdown-item" href="<?=base_url;?>/home/profile"
+                    >Profile</a
                   >
                 </li>
                 <li>

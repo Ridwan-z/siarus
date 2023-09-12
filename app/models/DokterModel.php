@@ -23,11 +23,23 @@ class DokterModel{
 
     public function tambah($data)
 	{
-		$query = "INSERT INTO dokter (nama,spesialisasi,id_jadwal) VALUES(:nama,:spesialisasi,:id_jadwal)";
+		$file = $this->upload();
+		if( !$file ){
+			return false;
+		}
+		$data = array(
+			'nama' => $_POST['nama'],
+			'spesialisasi' => $_POST['spesialisasi'],
+			'id_jadwal' => $_POST['id_jadwal'],
+			'file' => $file,
+		);
+
+		$query = "INSERT INTO " .$this->table ."(nama, spesialisasi, id_jadwal, file) VALUES(:nama, :spesialisasi, :id_jadwal, :file)";
 		$this->db->query($query);
 		$this->db->bind('nama',$data['nama']);
 		$this->db->bind('spesialisasi',$data['spesialisasi']);
 		$this->db->bind('id_jadwal',$data['id_jadwal']);
+		$this->db->bind('file',$data['file']);
 		$this->db->execute();
 
 		return $this->db->rowCount();
@@ -35,12 +47,20 @@ class DokterModel{
 
     public function update($data)
 	{
-		$query = "UPDATE dokter SET nama=:nama, spesialisasi=:spesialisasi, id_jadwal=:id_jadwal WHERE id_dokter=:id_dokter";
+		$data = array(
+			'id_dokter' => $_POST['id_dokter'],
+			'nama' => $_POST['nama'],
+			'spesialisasi' => $_POST['spesialisasi'],
+			'id_jadwal' => $_POST['id_jadwal'],
+			'file' => ($_FILES['file']['error'] === 4) ? $_POST['fileLama'] : $this->upload(),
+		);
+		$query = "UPDATE " .$this->table . " SET nama=:nama, spesialisasi=:spesialisasi, id_jadwal=:id_jadwal, file=:file WHERE id_dokter=:id_dokter";
 		$this->db->query($query);
 		$this->db->bind('id_dokter',$data['id_dokter']);
 		$this->db->bind('nama', $data['nama']);
 		$this->db->bind('spesialisasi', $data['spesialisasi']);
 		$this->db->bind('id_jadwal', $data['id_jadwal']);
+		$this->db->bind('file',$data['file']);
 		$this->db->execute();
 
 		return $this->db->rowCount();
@@ -53,5 +73,44 @@ class DokterModel{
 		$this->db->execute();
 
 		return $this->db->rowCount();
+	}
+
+	function upload() {
+		
+		$b = $_FILES['file']['name'];
+		$lokasiTmpB = $_FILES['file']['tmp_name'];
+		$ukuran = $_FILES['file']['size'];
+		$error = $_FILES['file']['error'];
+
+		if( $error === 4 ){
+			echo "<script>
+					alert('Masukan file terlebih dahulu!');
+				</script>";
+			return false;
+		}
+
+		$ekstensi_diperbolehkan = array('png', 'jpg', 'jpeg');
+		$xB = explode('.', $b);
+		$ekstensi = strtolower(end($xB));
+
+		if( !in_array($ekstensi, $ekstensi_diperbolehkan) ){
+			echo "<script>
+					alert('Yang anda upload bukan gambar!);
+				</script>";
+			return false;
+		}
+
+		if ($ukuran > 1000000) {
+			echo "<script>
+					alert('Ukuran file terlalu besar!);
+				</script>";
+				return false;
+			}
+
+		$namaBaruB = $b . '-' .uniqid() . '.' . $ekstensi ;
+		$lokasiBaruB = './files/' . $namaBaruB;
+		move_uploaded_file($lokasiTmpB, $lokasiBaruB);
+		return $namaBaruB;
+
 	}
 }
