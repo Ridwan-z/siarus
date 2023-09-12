@@ -35,9 +35,8 @@
 </td>
                         <td>
                           <a href="<?=base_url;?>/dokter/edit/<?=$row['id_dokter']?>" class="btn rounded-pill btn-icon btn-outline-warning"><span class="tf-icons bx bx-edit-alt"></span></a>
-                          <button type="button" class="btn rounded-pill btn-icon btn-outline-danger" data-bs-toggle="modal"
-                          data-bs-target="#modalToggle"><span class="tf-icons bx bx-trash-alt"></span></a>
-                        </td>
+                          <a href="<?=base_url;?>/dokter/hapus/<?=$row['id_dokter']?>" class="btn rounded-pill btn-icon btn-outline-danger" onclick="return confirm('Apakah anda yakin menghapus data ini?');"><span class="tf-icons bx bx-trash-alt"></span></a>
+                         </td>
                       </tr>
                         <?php $no++; endforeach;?>
                     </tbody>
@@ -46,30 +45,4 @@
               </div>
             </div>
 </div>
-<div
-                          class="modal fade"
-                          id="modalToggle"
-                          aria-labelledby="modalToggleLabel"
-                          tabindex="-1"
-                          style="display: none"
-                          aria-hidden="true"
-                        >
-                          <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <!-- <h5 class="modal-title" id="modalToggleLabel">Modal 1</h5> -->
-                                
-                              </div>
-                              <div class="modal-body">Apakah anda yakin menghapus data ini ?</div>
-                              <div class="modal-footer">
-                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                  Tutup
-                                </button>
-                                <a href="<?=base_url;?>/dokter/hapus/<?=$row['id_dokter']?>"  class="btn btn-danger"
-                                
-                                  >Hapus</a>
-                                
-                                
-                              </div>
-                            </div>
-                          </div>
+

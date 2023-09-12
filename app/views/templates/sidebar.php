@@ -1,3 +1,10 @@
+<?php
+$this->db = new Database;
+$uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+$uriS = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+$uri = $uriS[2];
+$uriPop = array_pop($uriSegments);
+?>
 <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
@@ -22,8 +29,8 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+            <li <?php if ($uriPop === 'dashboard'): ?> class="menu-item active" <?php else : ?> class="menu-item" <?php  endif; ?>> 
+              <a href="<?=base_url;?>/dashboard" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -36,31 +43,31 @@
             <!-- Components -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text"></span></li>
             <!-- Cards -->
-			 <li class="menu-item active open">
+			 <li <?php if ($uriPop !== 'dashboard' && $uriPop !== 'antrian'): ?> class="menu-item active open" <?php else : ?> class="menu-item" <?php  endif; ?>>
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Data</div>
               </a>
 
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li <?php if ($uriPop === 'dokter'): ?> class="menu-item active" <?php else : ?> class="menu-item" <?php  endif; ?>>
                   <a href="<?=base_url;?>/dokter" class="menu-link">
                     <div data-i18n="Without menu">Dokter</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li <?php if ($uriPop === 'pasien'): ?> class="menu-item active" <?php else : ?> class="menu-item" <?php  endif; ?>>
                   <a href="<?=base_url;?>/pasien" class="menu-link">
                     <div data-i18n="Without navbar">Pasien</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li <?php if ($uriPop === 'jadwal'): ?> class="menu-item active" <?php else : ?> class="menu-item" <?php  endif; ?>>
                   <a href="<?=base_url;?>/jadwal" class="menu-link">
                     <div data-i18n="Container">Jadwal</div>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="menu-item">
+            <li <?php if ($uriPop === 'antrian'): ?> class="menu-item active open" <?php else : ?> class="menu-item" <?php  endif; ?>>
               <a href="<?=base_url;?>/antrian" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-clinic"></i>
                 <div data-i18n="Basic">Antrian</div>
