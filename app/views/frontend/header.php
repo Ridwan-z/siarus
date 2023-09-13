@@ -204,7 +204,9 @@
             <li class="nav-item">
               <a class="nav-link text-dark" href="<?=base_url;?>/home/hubungi">Hubungi Kami</a>
             </li>
-            
+            <li class="nav-item">
+              <a class="btn btn-success" href="<?=base_url;?>/logout/logout">Login</a>
+            </li>
           </ul>
         </div>
       </div>

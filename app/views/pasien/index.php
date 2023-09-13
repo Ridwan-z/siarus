@@ -10,7 +10,7 @@
             <div class="card">
                 <h5 class="card-header"><?=$data['title']?></h5>
                  <div class="table-responsive text-nowrap">
-                  <table class="table">
+              a    <table class="table">
                     <thead>
                 
                         <th>Nomor</th>
