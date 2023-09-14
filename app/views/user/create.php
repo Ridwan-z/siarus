@@ -1,60 +1,148 @@
-  <!-- Content Wrapper. Contains page content -->
+
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Halaman User</h1>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+            <!-- Content -->
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-sm-12">
-          <?php
-            Flasher::Message();
-          ?>
-        </div>
-      </div>
-<div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title"><?= $data['title']; ?></h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form role="form" action="<?= base_url; ?>/user/simpanuser" method="POST" enctype="multipart/form-data">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label >Nama</label>
-                    <input type="text" class="form-control" placeholder="masukkan nama..." name="nama">
-                  </div>
-                  <div class="form-group">
-                    <label >Username</label>
-                    <input type="text" class="form-control" placeholder="masukkan username..." name="username">
-                  </div>
-                  <div class="form-group">
-                    <label >Password</label>
-                    <input type="password" class="form-control" placeholder="masukkan password..." name="password">
-                  </div>
-                  <div class="form-group">
-                    <label >Ulangi Password</label>
-                    <input type="password" class="form-control" name="ulangi_password">
-                  </div>
-                </div>
-                <!-- /.card-body -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+            <?php
+                    Flasher::Pesan();
+                  ?> 
+    <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0"><?=$data['title']?></h5>
+                      <!-- <small class="text-muted float-end">Merged input group</small> -->
+                    </div>
+                    <div class="card-body">
+                      <form action="<?=base_url;?>/user/aksiTambah" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-fullname">Nama Lengkap</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"
+                              ><i class="bx bx-user"></i
+                            ></span>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="nama"
+                              id="basic-icon-default-fullname"
+                              placeholder="Udin"
+                              aria-label="John Doe"
+                              aria-describedby="basic-icon-default-fullname2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-fullname">NIK</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"
+                              ><i class="bx bx-git-commit"></i
+                            ></span>
+                            <input
+                              type="number"
+                              class="form-control"
+                              name="nik"
+                              id="basic-icon-default-fullname"
+                              placeholder="123456789"
+                              aria-label="John Doe"
+                              aria-describedby="basic-icon-default-fullname2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-company">Username</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-company2" class="input-group-text"
+                              ><i class="bx bx-git-commit"></i
+                            ></span>
+                            <input
+                              type="text"
+                              id="basic-icon-default-company"
+                              name="username"
+                              class="form-control"
+                              placeholder="User"
+                              aria-label="ACME Inc."
+                              aria-describedby="basic-icon-default-company2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-company">Password</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-company2" class="input-group-text"
+                              ><i class="bx bx-git-commit"></i
+                            ></span>
+                            <input
+                              type="password"
+                              id="basic-icon-default-company"
+                              name="password"
+                              class="form-control"
+                             
+                              aria-label="ACME Inc."
+                              aria-describedby="basic-icon-default-company2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-company">Ulangi Password</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-company2" class="input-group-text"
+                              ><i class="bx bx-git-commit"></i
+                            ></span>
+                            <input
+                              type="password"
+                              id="basic-icon-default-company"
+                              name="ulangi_password"
+                              class="form-control"
+                              
+                              aria-label="ACME Inc."
+                              aria-describedby="basic-icon-default-company2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-fullname">Level</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"
+                              ><i class="bx bx-git-commit"></i
+                            ></span>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="lvl"
+                              id="basic-icon-default-fullname"
+                              placeholder="Admin"
+                              aria-label="John Doe"
+                              aria-describedby="basic-icon-default-fullname2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-company">Foto (.Jpg .Jpeg .Png)</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-company2" class="input-group-text"
+                              ><i class="bx bx-photo-album"></i
+                            ></span>
+                            <input
+                              type="file"
+                              id="basic-icon-default-company"
+                              name="file"
+                              class="form-control"
 
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-            </div>
-
-
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+                              aria-label="ACME Inc."
+                              aria-describedby="basic-icon-default-company2"
+                            />
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                      <div class="col-6">
+                    <a href="<?=base_url;?>/user" class="btn btn-danger"><span class="tf-icons bx bx-arrow-back "></span> &nbsp; Kembali</a>
+                    </div>
+                    <div class="col-6 text-end">
+                    <button type="submit" class="btn btn-primary">Tambah &nbsp; <span class="tf-icons bx bx-user-plus"></span></button>
+                    </div>
+                    </div>
+                      </form>
+                    </div>
+                  </div>
+                  </div>
+                  </div>

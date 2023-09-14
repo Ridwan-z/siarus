@@ -1,81 +1,47 @@
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Halaman User</h1>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
 
-    <!-- Main content -->
-    <section class="content">
-    <div class="row">
-        <div class="col-sm-12">
-          <?php
-            Flasher::Message();
-          ?>
-        </div>
-      </div>
-      <!-- Default box -->
+<div class="content-wrapper">
+            <!-- Content -->
 
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title"><?= $data['title'] ?></h3> <a href="<?= base_url; ?>/user/tambah" class="btn float-right btn-xs btn btn-primary">Tambah User</a>
-        </div>
-        <div class="card-body">
-        
-      <form action="<?= base_url; ?>/user/cari" method="post">
- <div class="row mb-3">
-    <div class="col-lg-6">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="" name="key" >
-    <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-          <a class="btn btn-outline-danger" href="<?= base_url; ?>/user" >Reset</a>
-    </div>
-  </div>
-
-  </div>
+            <div class="container-xxl flex-grow-1 container-p-y">
+            <a href="<?=base_url;?>/user/tambah" class="btn btn-icon btn-outline-primary" style="margin: 0 0 5px 5px;"><span class="tf-icons bx bx-user-plus"></span></a>
+            <?php
+                    Flasher::Pesan();
+                  ?> 
+            <div class="card">
+                <h5 class="card-header"><?=$data['title']?></h5>
+                 <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                
+                        <th>Nomor</th>
+                        <th>Username</th>
+                        <th>Level</th>
+                        <th>NIK</th>
+                        <th>Foto</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php $no = 1;?>
+                      <?php foreach ($data['user'] as $row) :?>
+                      <tr>
+                       
+                        <td><?=$no?></td>
+                        <td><?=$row['username']?></td>
+                        <td><?=$row['lvl']?></td>
+                        <td><?=$row['nik']?> </td>
+                        
+                        <td>
+    <img src="<?= base_url; ?>/files/<?= $row['file']; ?>" alt="Foto Dokter" width="50" height="50" style="border-radius:50%;">
+</td>
+                        <td>
+                          <a href="<?=base_url;?>/user/hapus/<?=$row['id_user']?>" class="btn rounded-pill btn-icon btn-outline-danger" onclick="return confirm('Apakah anda yakin menghapus data ini?');"><span class="tf-icons bx bx-trash-alt"></span></a>
+                          </td>
+                      </tr>
+                        <?php $no++; endforeach;?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
 </div>
-    </form>
-          <table class="table table-bordered">
-                  <thead>                  
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Nama</th>
-                      <th>Username</th>
-                      <th style="width: 150px">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <?php $no=1; ?> 
-                    <?php foreach ($data['user'] as $row) :?>
-                    <tr>
-                      <td><?= $no; ?></td>
-                      <td><?= $row['nama'];?></td>
-                      <td><?= $row['username'];?></td>
-                      <td>
-                        <a href="<?= base_url; ?>/user/edit/<?= $row['id'] ?>" class="badge badge-info ">Edit</a> <a href="<?= base_url; ?>/user/hapus/<?= $row['id'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');">Hapus</a>
-                      </td>
-                    </tr>
-                    <?php $no++; endforeach; ?>
-                  </tbody>
-                </table>
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-

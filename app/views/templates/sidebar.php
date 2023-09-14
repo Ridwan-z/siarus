@@ -13,7 +13,7 @@ $uriPop = array_pop($uriSegments);
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="#" class="app-brand-link">
               <span class="app-brand-logo demo">
                 
               </span>
@@ -43,7 +43,7 @@ $uriPop = array_pop($uriSegments);
             <!-- Components -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text"></span></li>
             <!-- Cards -->
-			 <li <?php if ($uriPop !== 'dashboard' && $uriPop !== 'antrian'): ?> class="menu-item active open" <?php else : ?> class="menu-item" <?php  endif; ?>>
+			 <li <?php if ($uriPop !== 'dashboard' && $uriPop !== 'antrian'&& $uriPop !== 'user'): ?> class="menu-item active open" <?php else : ?> class="menu-item" <?php  endif; ?>>
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Data</div>
@@ -73,8 +73,13 @@ $uriPop = array_pop($uriSegments);
                 <div data-i18n="Basic">Antrian</div>
               </a>
             </li>
-            
-
+            <li class="menu-header small text-uppercase"><span class="menu-header-text"></span></li>
+            <li <?php if ($uriPop === 'user'): ?> class="menu-item active open" <?php else : ?> class="menu-item" <?php  endif; ?>>
+              <a href="<?=base_url;?>/user" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Basic">User</div>
+              </a>
+            </li>
           
           </ul>
         </aside>
@@ -145,26 +150,12 @@ $uriPop = array_pop($uriSegments);
                         <span class="align-middle">My Profile</span>
                       </a>
                     </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Settings</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                          <span class="flex-grow-1 align-middle">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                        </span>
-                      </a>
-                    </li>
+                    
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" href="<?=base_url;?>/logout/logout">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>

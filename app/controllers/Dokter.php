@@ -3,9 +3,9 @@
 class Dokter extends Controller{
     public function __construct()
 	{	
-		if($_SESSION['session_login'] != 'sudah_login') {
+		if($_SESSION['session_login_admin'] != 'admin_sudah_login') {
 			Flasher::setMessage('Login','Tidak ditemukan.','danger');
-			header('location: '. base_url . '/login');
+			header('location: '. base_url . '/login/loginadmin');
 			exit;
 		}
 	} 

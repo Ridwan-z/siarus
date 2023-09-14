@@ -60,9 +60,7 @@
                 <p class="fs-5">Puskesmas blablabla</p>
                
 
-            <?php
-                    Flasher::Pesan();
-                  ?> 
+           
             <form action="<?= base_url; ?>/login/aksi" method="post">
               <div class="mb-3">
                 <input

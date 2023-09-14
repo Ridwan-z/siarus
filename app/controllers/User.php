@@ -3,7 +3,7 @@
 class User extends Controller {
 	public function __construct()
 	{	
-		if($_SESSION['session_login'] != 'sudah_login') {
+		if($_SESSION['session_login_admin'] != 'admin_sudah_login') {
 			Flasher::setMessage('Login','Tidak ditemukan.','danger');
 			header('location: '. base_url . '/login');
 			exit;
@@ -18,16 +18,7 @@ class User extends Controller {
 		$this->view('user/index', $data);
 		$this->view('templates/footer');
 	}
-	public function cari()
-	{
-		$data['title'] = 'Data User';
-		$data['user'] = $this->model('UserModel')->cariUser();
-		$data['key'] = $_POST['key'];
-		$this->view('templates/header', $data);
-		$this->view('templates/sidebar', $data);
-		$this->view('user/index', $data);
-		$this->view('templates/footer');
-	}
+	
 
 	public function edit($id){
 
@@ -47,13 +38,14 @@ class User extends Controller {
 		$this->view('templates/footer');
 	}
 
-	public function simpanUser(){		
+	public function aksiTambah(){		
+		ini_set('display_errors', 1);
 		if($_POST['password'] == $_POST['ulangi_password']) {	
 			$row = $this->model('UserModel')->cekUsername();
 			if($row['username'] == $_POST['username']){
 				Flasher::setMessage('Gagal','Username yang anda masukan sudah pernah digunakan!','danger');
-				header('location: '. base_url . '/user/tambah');
-				exit;	
+				// header('location: '. base_url . '/user/tambah');
+				// exit;	
 			} else {
 				if( $this->model('UserModel')->tambahUser($_POST) > 0 ) {
 					Flasher::setMessage('Berhasil','ditambahkan','success');
@@ -73,7 +65,7 @@ class User extends Controller {
 		
 	}
 
-	public function updateUser(){	
+	public function aksiUpdate(){	
 		if(empty($_POST['password'])) {
 			if( $this->model('UserModel')->updateDataUser($_POST) > 0 ) {
 			Flasher::setMessage('Berhasil','diupdate','success');
