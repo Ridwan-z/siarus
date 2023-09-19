@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-xxp9SA3eT+q9hPv/Z8L5HRsh+aL4f6a0lLd4GxptXjFcDshkHTtDz5zvc2Em+P8" crossorigin="anonymous">
-
+  
     <style>
       * {
         font-family: "Poppins", sans-serif;
@@ -155,11 +155,7 @@
                 Layanan
               </a>
               <ul class="dropdown-menu my-2" aria-labelledby="layananDropdown">
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Alur Pelayanan Puskesmas blablabla</a
-                  >
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"
                     >Jenis dan Jadwal Pelayanan</a
@@ -189,11 +185,7 @@
                     >Profile</a
                   >
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Sejarah</a
-                  >
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="#"
                     >Visi dan Misi</a
