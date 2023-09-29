@@ -45,6 +45,40 @@
                           </div>
                         </div>
                         <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-company">Telepon</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-company2" class="input-group-text"
+                              ><i class="bx bx-phone"></i
+                            ></span>
+                            <input
+                              type="number"
+                              id="basic-icon-default-company"
+                              name="telepon"
+                              class="form-control"
+                              placeholder="08347634323"
+                              aria-label="ACME Inc."
+                              aria-describedby="basic-icon-default-company2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-icon-default-company">Email</label>
+                          <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-company2" class="input-group-text"
+                              ><i class="bx bx-envelope"></i
+                            ></span>
+                            <input
+                              type="email"
+                              id="basic-icon-default-company"
+                              name="email"
+                              class="form-control"
+                              placeholder="test@gmail.com"
+                              aria-label="ACME Inc."
+                              aria-describedby="basic-icon-default-company2"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-3">
                           <label class="form-label" for="basic-icon-default-email">Jadwal</label>
                           <div class="input-group input-group-merge">
                             <span class="input-group-text"><i class="bx bx-time-five"></i></span>

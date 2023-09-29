@@ -42,7 +42,7 @@ class Login extends Controller {
 	}
 
 	public function aksiadmin(){
-		
+		// Check if the request method is POST
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$inputUsername = trim($_POST['username']);  
 			$inputPassword = trim($_POST['password']); 
@@ -50,17 +50,47 @@ class Login extends Controller {
 			$userData = $model->logadmin($inputUsername, $inputPassword);  // Memanggil metode log dengan input pengguna
 	
 			if ($userData) {
-				$_SESSION['session_login_admin'] = 'admin_sudah_login';
-				$_SESSION['user_data'] = $userData;
-				header('location: ' . base_url . '/dashboard');
+				// Verify reCAPTCHA
+				$recaptchaSecretKey = '6LfhT0AoAAAAAGXn5Io0pttHnMVg0pUEZf0VRYKY'; // Replace with your reCAPTCHA secret key
+				$recaptchaResponse = $_POST['g-recaptcha-response'];
+				$recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
+	
+				$recaptchaData = array(
+					'secret' => $recaptchaSecretKey,
+					'response' => $recaptchaResponse
+				);
+	
+				$options = array(
+					'http' => array(
+						'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method' => 'POST',
+						'content' => http_build_query($recaptchaData)
+					)
+				);
+	
+				$context = stream_context_create($options);
+				$recaptchaResult = file_get_contents($recaptchaUrl, false, $context);
+				$recaptchaResult = json_decode($recaptchaResult);
+	
+				if ($recaptchaResult->success) {
+					// reCAPTCHA verification passed
+					$_SESSION['session_login_admin'] = 'admin_sudah_login';
+					$_SESSION['user_data'] = $userData;
+					header('location: ' . base_url . '/dashboard');
+				} else {
+					// reCAPTCHA verification failed
+					Flasher::setMessage('reCAPTCHA verification', 'failed. Please try again.', 'danger');
+					header('location: ' . base_url . '/login/loginadmin');
+				}
 			} else {
-				Flasher::setMessage('Username dan Password', 'tidak ditemukan.', 'danger');
+				Flasher::setMessage('Username and Password', 'not found.', 'danger');
 				header('location: ' . base_url . '/login/loginadmin');
 			}
 		} else {
 			header('location: ' . base_url . '/login/loginadmin');
 		}
 	}
+	
 	
 	
 }

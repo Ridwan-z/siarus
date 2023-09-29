@@ -29,9 +29,11 @@
                         <td><?=$no?></td>
                         <td><?=$row['nama']?></td>
                         <td><?=$row['spesialisasi']?></td>
+                        <td><?=$row['telepon']?></td>
+                        <td><?=$row['email']?></td>
                         <td><?=$row['jam_mulai']?> - <?=$row['jam_selesai']?></td>
                         <td>
-    <img src="<?= base_url; ?>/files/<?= $row['file']; ?>" alt="Foto Dokter" width="50" height="50" style="border-radius:50%;">
+    <img src="<?= base_url; ?>/files/<?= $row['file']; ?>" alt="Foto Dokter" width="50" height="50" style="border-radius:50%; object-fit:cover;">
 </td>
                         <td>
                           <a href="<?=base_url;?>/dokter/edit/<?=$row['id_dokter']?>" class="btn rounded-pill btn-icon btn-outline-warning"><span class="tf-icons bx bx-edit-alt"></span></a>
